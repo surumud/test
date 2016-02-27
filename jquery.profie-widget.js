@@ -27,7 +27,7 @@
 			
 			if((this.settings.username !== null) && (this.settings.clientID !== null)) 
 			{
-				$(this.element).addClass("insta-profile-widget").append("<div class=\"insta-profile-images\"><div class=\"insta-profile-cell insta-profile-picture-slot\"></div><div class=\"insta-profile-cell insta-profile-picture-slot\"></div><div class=\"insta-profile-cell insta-profile-picture-slot\"></div><div class=\"insta-profile-cell insta-profile-picture-slot\"></div><div class=\"insta-profile-cell insta-profile-picture-slot\"></div><div class=\"insta-profile-cell insta-profile-picture-slot\"></div></div><div class=\"insta-profile-details\"><div class=\"insta-profile-icon\"></div><div class=\"insta-profile-avatar\"></div><h1 class=\"insta-profile-username\"></h1></div><div class=\"insta-profile-stats\"><div class=\"insta-profile-stat\"><strong></strong>Photos</div><div class=\"insta-profile-divider\"></div><div class=\"insta-profile-stat\"><strong></strong>Followers</div><a href=\"#\" class=\"insta-profile-btn\">View Profile</a></div>").find(".insta-profile-cell:nth-child(3n)").addClass("first");
+				$(this.element).addClass("insta-profile-widget").append("<div class=\"insta-profile-details\"><div class=\"insta-profile-icon\"></div><h1 class=\"insta-profile-username\"></h1></div><div class=\"insta-profile-images\"><div class=\"insta-profile-cell insta-profile-picture-slot\"></div></div><div class=\"insta-profile-stats\"><div class=\"insta-profile-stat\"><strong></strong>Photos</div><div class=\"insta-profile-divider\"></div><div class=\"insta-profile-stat\"><strong></strong>Followers</div><a href=\"#\" class=\"insta-profile-btn\">View Profile</a></div>").find(".insta-profile-cell:nth-child(3n)").addClass("first");
 				
 				this.sendRequest("users/search",{q:this.settings.username},this.callbackUsername);
 			} 
@@ -68,7 +68,7 @@
 				
 			});
 			
-			if(o.pictures.length > 6) {
+			if(o.pictures.length > 1) {
 			
 				setInterval(function() {
 					
@@ -78,7 +78,7 @@
 						unusedPictures.splice(unusedPictures.indexOf($(this).data("bg")),1);
 					});
 								
-					var replaceTile = Math.floor((Math.random() * 6));
+					var replaceTile = Math.floor((Math.random() * 1));
 					var image = unusedPictures[Math.floor((Math.random() * unusedPictures.length))];
 					
 					o.fadeImage(replaceTile,image);
